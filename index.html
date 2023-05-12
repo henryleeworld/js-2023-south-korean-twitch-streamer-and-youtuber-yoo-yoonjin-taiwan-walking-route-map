@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta property="og:title" content="南韓 Twitch 實況主和 YouTuber 「企鵝妹」柳允進的台灣行走路線圖" />
+        <meta property="og:description" content="2018 年曾來台唸書的南韓實況主「企鵝妹」柳允進 4 月 23 日展開徒步環遊台灣本島的旅程，從宜蘭出發，依序經過台灣本島最東、最北、最西點後，抵達終點站墾丁的台灣最南點。" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.6.5/ol.css" type="text/css" />
+        <link rel="stylesheet" href="css/ol3-sidebar.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/dark-hive/jquery-ui.min.css" integrity="sha512-gCFexX+67Pl9rPa75MMyEH2I5jbD5tqij8VBYcsLVwgVfVEdfon+9CEjVnXPtqoHLXjxrjMcyHLaee65dt/jxw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/dark-hive/theme.min.css" integrity="sha512-pN35/N51n1IeABlNGOSb5ltVKGbvUE8exTMhiB/4ijuy+UOYEWawQZzEs2yUvvCWopRO3uiRueeGnd/mQD0eTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="css/walking-route.css" type="text/css" />
+    </head>
+    <body>
+        <div id="sidebar" class="sidebar collapsed">
+            <div class="sidebar-tabs">
+                <ul role="tablist">
+                    <li>
+                        <a href="#home" role="tab"><i class="fa fa-bars"></i></a>
+                    </li>
+                    <li>
+                        <a href="#settings" role="tab"><i class="fa fa-gear"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-content">
+                <div class="sidebar-pane" id="home">
+                    <h1 class="sidebar-header">
+                        <span id="sidebarTitle">請點選地圖中的任何路線</span><span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                    </h1>
+                    <div id="sidebarContent">請點選地圖中的任何路線</div>
+                    <div class="btn-group-vertical" role="group" style="width: 100%;">
+                        <a href="https://www.google.com/maps/d/u/0/viewer?mid=16Y79OT_7wj_53sJ9GSVgIzjdwvykzpk" target="_blank" class="btn btn-primary btn-lg btn-block mt-2">原始地圖</a>
+                    </div>
+                </div>
+                <div class="sidebar-pane" id="settings">
+                    <h1 class="sidebar-header">
+                        <span id="weekTitle">設定</span><span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                    </h1>
+                    <div>
+                        <a href="#" class="btn btn-primary btn-lg btn-block mt-2" id="btn-fit">瀏覽全部路線</a>
+                        <a href="#" class="btn btn-primary btn-lg btn-block mt-2" id="btn-geolocation">回到目前位置</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="map" class="sidebar-map"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Director/1.2.8/director.min.js" integrity="sha512-3UcEodtkJtqqALeqiKsvNoalRNHqvWRRz8CwqKG+2tgyC6/JhDzQlfKqzoKFZVBJDrqyqLztmYxMb50YXoSnaA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.6.5/ol.js" type="text/javascript" defer></script>
+        <script src="js/ol5-sidebar.min.js" type="text/javascript" defer></script>
+        <script src="js/main.js" type="text/javascript" defer></script>
+    </body>
+</html>
