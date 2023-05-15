@@ -11,8 +11,8 @@ $ git clone
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/RgqRKL9.png)
+![](https://i.imgur.com/T8WwaSB.png)
 > 可以直接看到對應的記錄影片
 
-![](https://i.imgur.com/ursyi53.png)
+![](https://i.imgur.com/QCvncY3.png)
 > 過去 16 天的超過 400 公里的行程，一目了然

@@ -1,7 +1,4 @@
-var sidebar = new ol.control.Sidebar({
-    element: 'sidebar',
-    position: 'right'
-});
+var sidebar = new ol.control.Sidebar({ element: 'sidebar', position: 'right' });
 var jsonFiles, filesLength, fileKey = 0;
 
 var projection = ol.proj.get('EPSG:3857');
@@ -10,6 +7,7 @@ var size = ol.extent.getWidth(projectionExtent) / 256;
 var resolutions = new Array(20);
 var matrixIds = new Array(20);
 for (var z = 0; z < 20; ++z) {
+    // generate resolutions and matrixIds arrays for this WMTS
     resolutions[z] = size / Math.pow(2, z);
     matrixIds[z] = z;
 }
@@ -19,9 +17,8 @@ var appView = new ol.View({
     zoom: 14
 });
 
-var lineStyle = function(f) {
-    var p = f.getProperties(),
-        theColor = '#00c0d8';
+var lineStyle = function (f) {
+    var p = f.getProperties(), theColor = '#00c0d8';
     if (f === currentFeature) {
         theColor = '#d800c0';
     }
@@ -40,7 +37,12 @@ var lineStyle = function(f) {
             })
         })
     });
-    finalStyle.getText().setText(p.name + "\n" + Math.round(p.length / 100) / 10 + ' 公里');
+    var label = p.name + "\n";
+    if (videos[p.name]) {
+        label += videos[p.name].date + "\n";
+    }
+    label += Math.round(p.length / 100) / 10 + ' 公里';
+    finalStyle.getText().setText(label);
     return finalStyle;
 }
 
@@ -85,13 +87,13 @@ var barTitle = $('#sidebarTitle');
 var barContent = $('#sidebarContent');
 var videos = {};
 
-$.getJSON('data/videos.json', function(data) {
+$.getJSON('data/videos.json', function (data) {
     videos = data;
 });
 
-map.on('singleclick', function(evt) {
+map.on('singleclick', function (evt) {
     lineClicked = false;
-    map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+    map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
         if (false === lineClicked) {
             previousFeature = currentFeature;
             currentFeature = feature;
@@ -108,8 +110,8 @@ map.on('singleclick', function(evt) {
                 sidebar.open('home');
                 var message = '';
                 if (videos[p.name]) {
-                    for (k in videos[p.name]) {
-                        message += '<iframe width="100%" height="315" src="https://www.youtube.com/embed/' + videos[p.name][k] + '" title="' + p.name + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    for (k in videos[p.name].videos) {
+                        message += '<iframe width="100%" height="315" src="https://www.youtube.com/embed/' + videos[p.name].videos[k] + '" title="' + p.name + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     }
                 }
                 barTitle.html(p.name);
@@ -120,13 +122,24 @@ map.on('singleclick', function(evt) {
 
 });
 
+map.on("pointermove", function (evt) {
+    var hit = this.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
+        return true;
+    });
+    if (hit) {
+        this.getTargetElement().style.cursor = 'pointer';
+    } else {
+        this.getTargetElement().style.cursor = '';
+    }
+});
+
 var geolocation = new ol.Geolocation({
     projection: appView.getProjection()
 });
 
 geolocation.setTracking(true);
 
-geolocation.on('error', function(error) {
+geolocation.on('error', function (error) {
     console.log(error.message);
 });
 
@@ -145,7 +158,7 @@ positionFeature.setStyle(new ol.style.Style({
     })
 }));
 
-geolocation.on('change:position', function() {
+geolocation.on('change:position', function () {
     var coordinates = geolocation.getPosition();
     positionFeature.setGeometry(coordinates ? new ol.geom.Point(coordinates) : null);
 });
@@ -157,7 +170,7 @@ new ol.layer.Vector({
     })
 });
 
-$('#btn-geolocation').click(function() {
+$('#btn-geolocation').click(function () {
     var coordinates = geolocation.getPosition();
     if (coordinates) {
         appView.setCenter(coordinates);
@@ -167,12 +180,12 @@ $('#btn-geolocation').click(function() {
     return false;
 });
 
-$('#btn-fit').click(function() {
+$('#btn-fit').click(function () {
     setFit();
     return false;
 });
 
-var setZoom = function(zoomCode) {
+var setZoom = function (zoomCode) {
     zoomCode = parseInt(zoomCode);
     if (zoomCode > 8 && zoomCode < 21) {
         map.getView().setZoom(zoomCode);
@@ -183,7 +196,7 @@ setTimeout(() => {
     setFit();
 }, 1000);
 
-var setFit = function() {
+var setFit = function () {
     map.getView().fit(lines.getSource().getExtent(), map.getSize());
 }
 
