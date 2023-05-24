@@ -11,8 +11,8 @@ $ git clone
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/0TiAbam.png)
+![](https://i.imgur.com/61iVIje.png)
 > 可以直接看到對應的記錄影片
 
-![](https://i.imgur.com/bLiv4b8.png)
-> 目前已經走了 24 天，累積行程已突破 600 公里
+![](https://i.imgur.com/iqgzeyd.png)
+> 目前已經走了 25 天，累積行程已突破 600 公里
