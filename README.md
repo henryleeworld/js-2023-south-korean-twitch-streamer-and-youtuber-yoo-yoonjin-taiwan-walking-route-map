@@ -11,8 +11,8 @@ $ git clone
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/PUeyxBA.png)
+![](https://i.imgur.com/1FQ8Bld.png)
 > 可以直接看到對應的記錄影片
 
-![](https://i.imgur.com/xAMhD91.png)
-> 目前已經走了 39 天，累積行程已突破 1000 公里
+![](https://i.imgur.com/l5Qp2ga.png)
+> 6 月 18 日下午 5 點左右抵達鵝鑾鼻台灣極南點，總計花了 42 天、步行約 1075 公里
