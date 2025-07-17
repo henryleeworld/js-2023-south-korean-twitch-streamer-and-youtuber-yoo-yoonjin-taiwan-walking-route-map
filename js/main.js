@@ -7,13 +7,12 @@ var size = ol.extent.getWidth(projectionExtent) / 256;
 var resolutions = new Array(20);
 var matrixIds = new Array(20);
 for (var z = 0; z < 20; ++z) {
-    // generate resolutions and matrixIds arrays for this WMTS
     resolutions[z] = size / Math.pow(2, z);
     matrixIds[z] = z;
 }
 
 var appView = new ol.View({
-    center: ol.proj.fromLonLat([121.254840, 24.972320]),
+    center: ol.proj.fromLonLat([121.564101, 25.033493]),
     zoom: 14
 });
 
