@@ -11,8 +11,8 @@ $ git clone
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/hq1uMfL.png)
+![](https://i.imgur.com/LCTeHYZ.png)
 > 可以直接看到對應的記錄影片
 
-![](https://i.imgur.com/iYNFqYr.png)
+![](https://i.imgur.com/TYKUU5d.png)
 > 6 月 18 日下午 5 點左右抵達鵝鑾鼻台灣極南點，總計花了 42 天、步行約 1075 公里
